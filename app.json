@@ -1,9 +1,9 @@
 {
-  "name": "asd",
-  "displayName": "asd",
+  "name": "mobile-flashcards",
+  "displayName": "mobile-flashcards",
   "expo": {
-    "name": "asd",
-    "slug": "asd",
+    "name": "mobile-flashcards",
+    "slug": "mobile-flashcards",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

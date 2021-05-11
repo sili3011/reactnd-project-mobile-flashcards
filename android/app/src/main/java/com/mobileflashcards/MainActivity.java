@@ -1,4 +1,4 @@
-package com.asd;
+package com.mobileflashcards;
 
 import android.os.Bundle;
 
