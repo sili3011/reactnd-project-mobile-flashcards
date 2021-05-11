@@ -1,0 +1,12 @@
+{
+  "name": "asd",
+  "displayName": "asd",
+  "expo": {
+    "name": "asd",
+    "slug": "asd",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
