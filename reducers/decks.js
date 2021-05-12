@@ -5,7 +5,7 @@ export default function decks(state = {}, action) {
         case RECEIVE_DECKS:
             return { ...state, ...action.users};
         case ADD_DECK:
-            return { ...state};
+            return { ...state, [action.deck.id]: {...action.deck}};
         default: return state;
     }
 }

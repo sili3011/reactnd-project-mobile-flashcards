@@ -13,7 +13,7 @@ export function receiveDecks(decks) {
 
 function addDeck(deck) {
     return {
-        type: ADD_DECKS,
+        type: ADD_DECK,
         deck,
     }
 }
@@ -21,12 +21,12 @@ function addDeck(deck) {
 export function addDeckHandler(deck) {
     return (dispatch) => {
         dispatch(addDeck(deck));
-
-        return submitDeck(info).catch((e) => {
-            console.warn('Error in handleToggleTweet: ', e);
-            dispatch(removeDeck(deck));
-            alert('There was an error liking the tweet!')
-        });
+        return submitDeck(deck)
+        // .catch((e) => {
+        //     console.warn('Error in handleToggleTweet: ', e);
+        //     dispatch(removeDeck(deck));
+        //     alert('There was an error liking the tweet!')
+        // });
     }
 }
 

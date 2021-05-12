@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Text, ScrollView, TouchableOpacity, View } from 'react-native';
 import { addDeckHandler } from '../actions/decks';
 
-export class DeckList extends Component {
+class DeckList extends Component {
 
     addDeck = () => {
         const id = this.props.decks.length;
@@ -14,23 +14,22 @@ export class DeckList extends Component {
         let { decks } = this.props;
         return (
             <View>
-                {/* <ScrollView>
-                    {decks.map(deck => (
-                        <Text key={deck.id} style={{color: '#fff'}}>{deck.name}</Text>))
-                    }
-                </ScrollView> */}
+                <View style={{height: '10%'}}>
+                    <ScrollView>
+                        {decks.map(deck => (
+                            <Text key={deck.id} style={{color: '#fff'}}>{deck.name}</Text>))
+                        }
+                    </ScrollView>
+                </View>
                 <TouchableOpacity onPress={this.addDeck}><Text>Add</Text></TouchableOpacity>
             </View>
         );
     }
 }
 
-function mapStateToProps (state) {
-    console.log(state.decks)
-    const d  = state.decks ? state.decks : [];
-    console.log(d)
+function mapStateToProps ({decks}) {
     return {
-        decks: d
+        decks: decks ? Object.values(decks) : []
     }
 }
 

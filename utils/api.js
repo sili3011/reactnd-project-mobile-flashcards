@@ -1,12 +1,12 @@
 import { AsyncStorage } from '@react-native-async-storage/async-storage'
 
 export function submitDeck({ deckId, deck }) {
-    return AsyncStorage.mergeItem(CALENDAR_STORAGE_KEY, JSON.stringify({
-        ['decks']: {
-            ...['decks'],
-            [deckId]: deck
-        }
-    }));
+    // return AsyncStorage.mergeItem(CALENDAR_STORAGE_KEY, JSON.stringify({
+    //     ['decks']: {
+    //         ...['decks'],
+    //         [deckId]: deck
+    //     }
+    // }));
 }
 
 // export function removeDeck() {

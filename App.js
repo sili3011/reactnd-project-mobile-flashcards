@@ -5,7 +5,8 @@ import { StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { initData } from './actions/shared';
-import { DeckList } from './components/DeckList';
+import DeckList from './components/DeckList';
+import middleware from './middleware';
 import reducers from './reducers';
 
 export default class App extends React.Component {
@@ -16,7 +17,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={createStore(reducers, middleware)}>
         <View style={styles.container}>
           <View style={{height: Constants.statusBarHeight}}>
             <StatusBar style='light'/>
