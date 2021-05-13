@@ -4,6 +4,7 @@ import FCText from './FCText';
 import FCView from './FCView';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import FCButton from './FCButton';
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
 
 class Quiz extends Component {
 
@@ -20,6 +21,9 @@ class Quiz extends Component {
     }
 
     goOn = (correct) => {
+        if(this.state.currentQuestionIndex + 1 >= this.props.decks[deckId].questions.length) {
+            clearLocalNotification().then(setLocalNotification);
+        }
         if(correct) {
             this.setState(() => ({
                 correctlyAnswered: this.state.correctlyAnswered +1

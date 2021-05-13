@@ -4,7 +4,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { initData } from './actions/shared';
+import { setLocalNotification } from './utils/helpers';
 import DeckList from './components/DeckList';
 import Deck from './components/Deck';
 import NewQuestion from './components/NewQuestion';
@@ -17,6 +17,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 import FCView from './components/FCView';
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    setLocalNotification();
+  }
+
   render() {
     return (
       <Provider store={createStore(reducers, middleware)}>
