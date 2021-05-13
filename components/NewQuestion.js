@@ -27,7 +27,7 @@ class NewQuestion extends Component {
     }
 
     onSubmit = () => {
-        this.props.dispatch(addQuestionHandler({id: uuid.v4(), question: this.state.inputQuestion, answer: this.state.inputAnswer, deckId: this.props.navigation.state.params.deckId}));
+        this.props.dispatch(addQuestionHandler({id: uuid.v4(), question: this.state.inputQuestion.trim(), answer: this.state.inputAnswer.trim(), deckId: this.props.navigation.state.params.deckId}));
         this.props.navigation.goBack();
     }
 

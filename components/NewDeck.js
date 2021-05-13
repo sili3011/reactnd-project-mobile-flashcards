@@ -20,8 +20,9 @@ class NewDeck extends Component {
     }
 
     onSubmit = () => {
-        this.props.dispatch(addDeck({id: uuid.v4(), name: this.state.inputName, questions: []}));
-        this.props.navigation.goBack();
+        const id = uuid.v4();
+        this.props.dispatch(addDeck({id: id, name: this.state.inputName.trim(), questions: []}));
+        this.props.navigation.navigate("Deck", {id: id})
     }
 
     render() {

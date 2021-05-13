@@ -3,9 +3,9 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import FCText from './FCText';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export default function FCButton ({onPressFunction, icon, text, disabled}) {
+export default function FCButton ({onPressFunction, icon, text, disabled, style}) {
     return (
-        <TouchableOpacity onPress={onPressFunction} style={[styles.item, {backgroundColor: '#000'}]} disabled={disabled}>
+        <TouchableOpacity onPress={onPressFunction} style={[styles.item, {backgroundColor: '#000'}, style]} disabled={disabled}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 { icon !== undefined && icon !== '' && <FontAwesome5 name={icon} style={[{color: '#fff', margin: 5}, disabled ? {color: '#444'} : { color: '#fff'}]} /> }
                 <FCText style={ disabled ? {color: '#444'} : { color: '#fff'} }>
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   item: {
-    backgroundColor: '#444',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
