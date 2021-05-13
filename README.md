@@ -1,4 +1,4 @@
-# FlasCards ReactNative Project
+# FlashCards ReactNative Project
 
 This is the finished code of the third project submission for the Udacity React Nanodegree Program implemented by Silvio Schmidt.  
 FlasCards is a ReactNative app that allows users to create flash card decks of questions, to quiz themselves.  
