@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-export default function FCText ({text}) {
+export default function FCText ({children, style}) {
     return (
-        <Text style={styles.text}>{text}</Text>
+        <Text style={[styles.text, style]}>{children}</Text>
     );
 }
 

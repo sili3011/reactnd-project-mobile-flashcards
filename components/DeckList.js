@@ -4,26 +4,22 @@ import { StyleSheet, TouchableOpacity, View, FlatList } from 'react-native';
 import { addDeckHandler } from '../actions/decks';
 import FCText from './FCText';
 import FCView from './FCView';
+import FCButton from './FCButton';
+import uuid from 'react-native-uuid';
 
 class DeckList extends Component {
-
-    addDeck = () => {
-        const id = this.props.decks.length;
-        this.props.dispatch(addDeckHandler({id: `Deck${id}`, name: `Deck${id}`, questions: []}));
-    }
-
     renderItem = ({ item }) => (
         <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Deck", {id: item.id})}>
-            <FCText text={ item.name }/>
+            <FCText>{ item.name }</FCText>
+            <FCText>{ `Number of questions: ${item.questions.length}` }</FCText>
         </TouchableOpacity>
     );
 
     render() {
-        console.log(this.props);
         let { decks } = this.props;
         return (
             <FCView>
-                <View style={{height: '90%'}}>
+                <View style={{height: '80%'}}>
                     <FlatList
                         data={decks}
                         renderItem={this.renderItem}
@@ -31,7 +27,7 @@ class DeckList extends Component {
                     />
                 </View>
                 <View style={styles.containerCenter}>
-                    <TouchableOpacity onPress={this.addDeck}><FCText text={'Add Deck'}/></TouchableOpacity>
+                    <FCButton onPressFunction={() => this.props.navigation.navigate("NewDeck")} icon='plus-circle' text='Add Deck'/>
                 </View>
             </FCView>
         );

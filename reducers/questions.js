@@ -5,7 +5,7 @@ export default function questions(state = {}, action) {
         case RECEIVE_QUESIONS:
             return { ...state, ...action.users};
         case ADD_QUESTION:
-            return { ...state}
+            return { ...state, [action.question.id]: {...action.question}};
         default: return state
     }
 }

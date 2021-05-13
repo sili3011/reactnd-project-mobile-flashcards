@@ -7,6 +7,9 @@ import { createStore } from 'redux';
 import { initData } from './actions/shared';
 import DeckList from './components/DeckList';
 import Deck from './components/Deck';
+import NewQuestion from './components/NewQuestion';
+import NewDeck from './components/NewDeck';
+import Quiz from './components/Quiz';
 import middleware from './middleware';
 import reducers from './reducers';
 import { createAppContainer } from 'react-navigation';
@@ -33,11 +36,34 @@ export default class App extends React.Component {
   }
 }
 
+const defaultNavigationOptions = {
+  headerTintColor: 'white',
+  headerStyle: {
+    backgroundColor: '#333'
+  }
+}
+
 const MainNavigator = createAppContainer(createStackNavigator({
   DeckList: {
     screen: DeckList,
+    navigationOptions: {
+      headerShown: false
+    }
   },
   Deck: {
     screen: Deck,
+    navigationOptions: defaultNavigationOptions
   },
+  NewDeck: {
+    screen: NewDeck,
+    navigationOptions: defaultNavigationOptions
+  },
+  NewQuestion: {
+    screen: NewQuestion,
+    navigationOptions: defaultNavigationOptions
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: defaultNavigationOptions
+  }
 }));
