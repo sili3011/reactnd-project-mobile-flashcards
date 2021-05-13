@@ -10,23 +10,10 @@ export function receiveDecks(decks) {
     }
 }
 
-function addDeck(deck) {
+export function addDeck(deck) {
     return {
         type: ADD_DECK,
         deck,
-    }
-}
-
-export function addDeckHandler(deck) {
-    return (dispatch) => {
-        dispatch(addDeck(deck));
-        return ;
-        // submitDeck(deck)
-        // .catch((e) => {
-        //     console.warn('Error in handleToggleTweet: ', e);
-        //     dispatch(removeDeck(deck));
-        //     alert('There was an error liking the tweet!')
-        // });
     }
 }
 
@@ -34,12 +21,5 @@ export function addQuestionToDeck(question) {
     return {
         type: ADD_QUESTION_TO_DECK,
         question,
-    }
-}
-
-export function removeDeck(deck) {
-    return {
-        type: REMOVE_DECKS,
-        deck,
     }
 }

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, TouchableOpacity, View, FlatList } from 'react-native';
-import { addDeckHandler } from '../actions/decks';
 import FCText from './FCText';
 import FCView from './FCView';
 import FCButton from './FCButton';
-import uuid from 'react-native-uuid';
 
 class DeckList extends Component {
     renderItem = ({ item }) => (

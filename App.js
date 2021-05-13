@@ -17,11 +17,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import FCView from './components/FCView';
 
 export default class App extends React.Component {
-
-  componentDidMount() {
-    initData();
-  }
-
   render() {
     return (
       <Provider store={createStore(reducers, middleware)}>

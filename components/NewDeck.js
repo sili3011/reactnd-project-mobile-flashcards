@@ -5,7 +5,7 @@ import FCView from './FCView';
 import { TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import FCButton from './FCButton';
 import uuid from 'react-native-uuid';
-import { addDeckHandler } from '../actions/decks';
+import { addDeck } from '../actions/decks';
 
 class NewDeck extends Component {
 
@@ -20,7 +20,7 @@ class NewDeck extends Component {
     }
 
     onSubmit = () => {
-        this.props.dispatch(addDeckHandler({id: uuid.v4(), name: this.state.inputName, questions: []}));
+        this.props.dispatch(addDeck({id: uuid.v4(), name: this.state.inputName, questions: []}));
         this.props.navigation.goBack();
     }
 

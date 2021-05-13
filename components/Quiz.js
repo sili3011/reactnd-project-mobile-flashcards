@@ -5,6 +5,12 @@ import FCView from './FCView';
 import { StyleSheet, View } from 'react-native';
 
 class Quiz extends Component {
+
+    state = {
+        currentQuestionIndex: 0,
+        correctlyAnswered: 0,
+    }
+
     render() {
         return (
             <FCView>
