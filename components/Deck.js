@@ -9,6 +9,14 @@ class Deck extends Component {
     render() {
         const { id } = this.props.navigation.state.params;
         const deck = this.props.decks[id];
+
+        if(!deck) {
+            return (
+            <FCText style={{fontSize: 30, margin: 10}}>
+                LOADING
+            </FCText>)
+        }
+
         return (
             <FCView>
                 <View style={[styles.center, {height: '100%'}]}>

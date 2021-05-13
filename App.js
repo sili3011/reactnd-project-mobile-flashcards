@@ -15,11 +15,13 @@ import reducers from './reducers';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import FCView from './components/FCView';
+import { initData } from './actions/shared';
 
 export default class App extends React.Component {
 
   componentDidMount() {
     setLocalNotification();
+    initData();
   }
 
   render() {
