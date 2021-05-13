@@ -19,6 +19,6 @@ function addQuestion(question) {
 
 export function handleAddQuestion(question) {
     return (dispatch) => {
-        return addQuestionToAPI(question).catch((error) => console.error(error)).then(() => dispatch(addQuestion(question)));
+        return addQuestionToAPI({question, key: question.id}).catch((error) => console.error(error)).then(() => dispatch(addQuestion(question)));
     }
 }

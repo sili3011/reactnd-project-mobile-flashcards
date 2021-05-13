@@ -19,14 +19,16 @@ import { initData } from './actions/shared';
 
 export default class App extends React.Component {
 
+  store = createStore(reducers, middleware);
+
   componentDidMount() {
     setLocalNotification();
-    initData();
+    this.store.dispatch(initData());
   }
 
   render() {
     return (
-      <Provider store={createStore(reducers, middleware)}>
+      <Provider store={this.store}>
         <FCView>
           <View style={{height: Constants.statusBarHeight}}>
             <StatusBar style='light'/>

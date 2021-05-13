@@ -21,7 +21,7 @@ class Quiz extends Component {
     }
 
     goOn = (correct) => {
-        if(this.state.currentQuestionIndex + 1 >= this.props.decks[deckId].questions.length) {
+        if(this.state.currentQuestionIndex + 1 >= this.props.decks[this.props.navigation.state.params.deckId].questions.length) {
             clearLocalNotification().then(setLocalNotification);
         }
         if(correct) {
@@ -50,7 +50,7 @@ class Quiz extends Component {
                 <View style={[styles.center, {height: '100%'}]}>
                     { index < deck.questions.length ?
                     <View>
-                        <FCText>
+                        <FCText style={{fontSize: 20, margin: 20}}>
                             Question {index + 1} of {deck.questions.length}:
                         </FCText>
                         <View style={[styles.item, {margin: 20}]}>
@@ -58,7 +58,7 @@ class Quiz extends Component {
                                 {deck.questions[index].question}
                             </FCText>
                         </View>
-                        <View style={styles.center}>
+                        <View style={[styles.center, {margin: 10}]}>
                             { this.state.showAnswer ?
                             <TouchableOpacity onPress={this.toggleShowAnswer}>
                                 <FCText>
@@ -72,7 +72,7 @@ class Quiz extends Component {
                             </TouchableOpacity>
                             }
                         </View>
-                        <View style={{flexDirection: 'row', height: '100%', alignItems: 'flex-end'}}>
+                        <View style={{flexDirection: 'row', height: '30%', alignItems: 'flex-end'}}>
                             <FCButton style={{backgroundColor: '#27ae60'}} text='Correct' onPressFunction={() => this.goOn(true)}/>
                             <FCButton style={{backgroundColor: '#c0392b'}} text='Wrong' onPressFunction={() => this.goOn(false)}/>
                         </View>

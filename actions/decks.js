@@ -2,7 +2,7 @@ import { addDeck as addDeckToAPI } from '../utils/api'
 
 export const RECEIVE_DECKS = 'RECEIVE_DECKS';
 export const ADD_DECK = 'ADD_DECK';
-export const ADD_QUESTION_TO_DECK = 'ADD_QUESTION_DECK';
+export const ADD_QUESTION_TO_DECK = 'ADD_QUESTION_TO_DECK';
 
 export function receiveDecks(decks) {
     return {
@@ -20,13 +20,13 @@ function addDeck(deck) {
 
 export function handleAddDeck(deck) {
     return (dispatch) => {
-        return addDeckToAPI(deck).catch((error) => console.error(error)).then(() => dispatch(addDeck(deck)));
+        return addDeckToAPI({deck, key: deck.id}).catch((error) => console.error(error)).then(() => dispatch(addDeck(deck)));
     }
 }
 
-export function addQuestionToDeck(question) {
-    return {
-        type: ADD_QUESTION_TO_DECK,
-        question,
+export function handleAddQuestionToDeck(question, deck) {
+    deck.questions = deck.questions.concat(question);
+    return (dispatch) => {
+        return addDeckToAPI({deck, key: deck.id}).catch((error) => console.error(error)).then(() => dispatch(addDeck(deck)));
     }
 }
